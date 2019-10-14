@@ -22,13 +22,16 @@ function deleteStudent($id)
     $_SESSION['students'] = $students;
 
     return $students;
-    if (!empty($_POST['delete']))
-{
-    $student_id = isset($_POST['id']) ? $_POST['id'] : '';
+   
+
+
+} 
+// if (!empty($_GET['delete']))
+// {
+//     $id = isset($_GET['id']) ? $_GET['id'] : '';
+//     deleteStudent($id);
+$id =  $_GET['id'];
     deleteStudent($id);
-}
- 
-// Cuối cùng là chuyển hướng về trang danh sách
 header("Location:list.php");
-}
+ 
 ?>

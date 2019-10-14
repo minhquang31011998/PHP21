@@ -1,3 +1,11 @@
+<?php 
+session_start();
+function getAllStudents()
+
+{
+    return isset($_SESSION['students']) ? $_SESSION['students'] : array();
+}  $students = getAllStudents();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,19 +29,22 @@
             <th>Họ tên</th>
             <th>Action</th>
         </tr>
-        <?php foreach ($students as $item){ $i++; ?>
-        <tr>
-            <td><?php echo $i; ?></td>
-            <td><?php echo $item['id']; ?></td>
-            <td><?php echo $item['name']; ?></td>
+        <?php
+        $i=0;
+        foreach ($students as $item){ $i++; ?>
+            <tr>
+                <td><?php echo $i; ?></td>
+                <td><?php echo $item['id']; ?></td>
+                <td><?php echo $item['name']; ?></td>
 
 
-            <td>
-             <a href="detail.php?id=<?php echo $value['code']; ?>" class="btn btn-success">Detail</a>
-             <a href="delete.php?id=<?php echo $value['code']; ?>" class="btn btn-danger">Delete</a>
-         </td>
-     </tr>
-     <?php } ?>
- </table>
+                <td>
+                   <a href="detail.php?id=<?php echo $item['id']; ?>" class="btn btn-success">Detail</a>
+                   <a href="delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger">Delete</a>
+                           </form>
+               </td>
+           </tr>
+       <?php } ?>
+   </table>
 </body>
 </html>

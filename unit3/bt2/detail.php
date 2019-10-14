@@ -24,25 +24,17 @@ function getStudent($id)
     return array();
 }
 
-$id=$_POST['id'];
-$name=$_POST['name'];
-$sdt=$_POST['sdt'];
-$email=$_POST['email'];
-$gt=$_POST['gender'];
-$dc=$_POST['dc'];
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-if(!$id || !$name || !$sdt || !$email || !$dc){
-	header('location: add1.php');
-	}
-else{ 
+
+$data = getStudent($_GET['id']);
+
 	echo '<h1 align="center">Thông tin sinh viên</h1>';
 	
-	echo 'Mã sinh viên: '.$id.'<br>';
-	echo 'Họ và tên: '.$name.'<br>';
-	echo 'Số điện thoại: '.$sdt.'<br>';
-	echo 'Email: '.$email.'<br>';
-	echo 'Giới tính: '.$gt.'<br>';
-	echo 'Địa chỉ: '.$dc.'<br>';
-	}
-}
+	echo 'Mã sinh viên: '.$data['id'].'<br>';
+	echo 'Họ và tên: '.$data['name'].'<br>';
+	echo 'Số điện thoại: '.$data['sdt'].'<br>';
+	echo 'Email: '.$data['email'].'<br>';
+	echo 'Giới tính: '.$data['gender'].'<br>';
+	echo 'Địa chỉ: '.$data['dc'].'<br>';
+
+
  ?>

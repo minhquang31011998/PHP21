@@ -18,8 +18,8 @@
 </head>
 <body>
     <div class="container">
-        <form action="add_process.php" method="post" role="form">
-            <legend>Phương thức POST</legend>
+        <form action="add_process.php" method="get" role="form">
+            <legend>Thêm mới sinh viên</legend>
             
             <div class="form-group">
                 <label for="">Mã sinh viên</label>
