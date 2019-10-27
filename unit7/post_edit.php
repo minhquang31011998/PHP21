@@ -3,23 +3,23 @@ $id = $_GET['id'];
 
 require_once('connection.php');
 
-$query = "SELECT * FROM categories WHERE id=".$id;
+$query = "SELECT * FROM posts WHERE id=".$id;
 
 $result = $conn->query($query);
 
 $cate = $result->fetch_assoc();
-// Câu lệnh truy vấn
-$query = "SELECT * FROM categories WHERE parent_id is NULL";
+// // Câu lệnh truy vấn
+// $query = "SELECT * FROM categories WHERE parent_id is NULL";
 
-// Thực thi câu lệnh
-$result1 = $conn->query($query);
-// Tạo 1 mảng để chứa dữ liệu
-$categories = array();
+// // Thực thi câu lệnh
+// $result1 = $conn->query($query);
+// // Tạo 1 mảng để chứa dữ liệu
+// $categories = array();
 
-while($row = $result1->fetch_assoc()) { 
-    $categories[] = $row;
-}
-	//print_r($cate);
+// while($row = $result1->fetch_assoc()) { 
+//     $categories[] = $row;
+// }
+// 	//print_r($cate);
 
 ?>
 
@@ -41,29 +41,19 @@ while($row = $result1->fetch_assoc()) {
 <body>
     <div class="container">
        
-        <h3 align="center">Edit Category</h3>
+        <h3 align="center">Edit Post</h3>
         <hr>
-        <form action="category_edit_process.php" method="POST" role="form" enctype="multipart/form-data">
+        <form action="post_edit_process.php" method="POST" role="form" enctype="multipart/form-data">
         	<input type="hidden" name="id" value="<?= $cate['id'] ?>">
             <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" class="form-control" id="" placeholder="" name="name" value="<?= $cate['name'] ?>">
+                <label for="">Title</label>
+                <input type="text" class="form-control" id="" placeholder="" name="title" value="<?= $cate['title'] ?>">
             </div>
             <div class="form-group">
                 <label for="">Description</label>
                 <input type="text" class="form-control" id="" placeholder="" name="description"  value="<?= $cate['description'] ?>">
             </div>
-            <div class="form-group">
-                <label for="">Danh mục cha</label>
-                <select class="form-group" name="parent_id">
-                  <option value="0">Mời bạn chọn danh mục cha</option>
-                  <?php foreach ($categories as $value) { ?>
-                      <option <?php if($cate['parent_id']==$value['id']) echo "selected" ?> value="<?php echo $value['id'] ?>"><?php echo $value['name'] ?></option>
-                  <?php } ?>
-                  
-                 
-              </select>
-          </div>
+           
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

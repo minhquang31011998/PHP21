@@ -2,16 +2,16 @@
 
 require_once('connection.php');
 // Câu lệnh truy vấn
-$query = "SELECT * FROM categories WHERE parent_id is NULL";
+// $query = "SELECT * FROM posts WHERE parent_id is NULL";
 
-// Thực thi câu lệnh
-$result = $conn->query($query);
-// Tạo 1 mảng để chứa dữ liệu
-$categories = array();
+// // Thực thi câu lệnh
+// $result = $conn->query($query);
+// // Tạo 1 mảng để chứa dữ liệu
+// $categories = array();
 
-while($row = $result->fetch_assoc()) { 
-    $categories[] = $row;
-}
+// while($row = $result->fetch_assoc()) { 
+//     $categories[] = $row;
+// }
 
 
 ?>
@@ -33,28 +33,18 @@ while($row = $result->fetch_assoc()) {
 <body>
     <div class="container">
         <h3 align="center">DevMind - Education And Technology Group</h3>
-        <h3 align="center">Add New Category</h3>
+        <h3 align="center">Add New Post</h3>
         <hr>
-        <form action="category_add_process.php" method="POST" role="form" enctype="multipart/form-data">
+        <form action="post_add_process.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" class="form-control" id="" placeholder="" name="name">
+                <label for="">Title</label>
+                <input type="text" class="form-control" id="" placeholder="" name="title">
             </div>
             <div class="form-group">
                 <label for="">Description</label>
                 <input type="text" class="form-control" id="" placeholder="" name="description">
             </div>
-            <div class="form-group">
-                <label for="">Danh mục cha</label>
-                <select class="form-group" name="parent_id">
-                  <option value="0">Mời bạn chọn danh mục cha</option>
-                  <?php foreach ($categories as $value) { ?>
-                      <option value="<?php echo $value['id'] ?>"><?php echo $value['name'] ?></option>
-                  <?php } ?>
-                  
-                 
-              </select>
-          </div>
+           
           <button type="submit" class="btn btn-primary">Create</button>
       </form>
   </div>
