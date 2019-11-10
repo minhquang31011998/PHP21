@@ -17,7 +17,7 @@
 <body>
     <div class="container">
         <h3 class="text-center">--- USERS ---</h3>
-        <a href="user_add.php" class="btn btn-primary">Add New User</a>
+        <a href="index.php?mod=user&act=edit&id=" class="btn btn-primary">Add New User</a>
         <table class="table">
             <thead>
                 <th>ID</th>
@@ -35,9 +35,9 @@
                     <td><?php echo $row['email'] ?></td>
                     <td><img style="width: 40%;height: 50%;" src="<?php echo $row['image'] ?>" ></td>
                     <td>
-                        <a href="controllers/UserController.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Detail</a>
-                        <a href="user_edit.php?id=<?php echo $row['id'] ?>" class="btn btn-success">Edit</a>
-                        <a href="user_delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
+                        <a href="index.php?mod=user&act=detail&id=<?php echo $row['id'] ?>" class="btn btn-primary">Detail</a>
+                        <a href="index.php?mod=user&act=edit&id=<?php echo $row['id'] ?>" class="btn btn-success">Edit</a>
+                        <a href="index.php?mod=user&act=delete&id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
 

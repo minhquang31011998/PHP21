@@ -17,6 +17,18 @@ switch ($mod) {
 		case 'edit':
 		$controller_obj->edit();
 		break;
+		case 'store':
+		$controller_obj->store();
+		break;
+		case 'detail':
+		$controller_obj->detail();
+		break;
+		case 'delete':
+		$controller_obj->delete();
+		break;
+		case 'update':
+		$controller_obj->update();
+		break;
 		
 		default:
 		$controller_obj->error();
